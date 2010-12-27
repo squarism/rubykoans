@@ -1,8 +1,9 @@
 = Solutions to EdgeCase Ruby Koans
 
-Original EdgeCase Project
-https://github.com/edgecase/ruby_koans
+== Acknowledgments
+Original EdgeCase Project: https://github.com/edgecase/ruby_koans
 
+== About
 Please, please, please don't use this as a cheat sheet.  EdgeCase did an excellent job on these exercises and they are extremely valuable to your learning and growth to legitimately work on this without cheating.  However, there were many questions, comments and areas where I got stuck and I thought I'd share my eventual answers for my later reference, correction or other people's benefit.
 
 Nasty bits I broke into Learned: sections.  Run `grep -rn Learned: *` in the project root for a quick print-out of what I thought were gotchas and tricky bits.
