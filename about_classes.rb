@@ -22,7 +22,8 @@ class AboutClasses < EdgeCase::Koan
     assert_equal [], fido.instance_variables
 
     fido.set_name("Fido")
-    assert_equal ["@name"], fido.instance_variables
+    # this is different in 1.9.2-p290 vs 1.8.7
+    assert_equal [:@name], fido.instance_variables
   end
 
   def test_instance_variables_cannot_be_accessed_outside_the_class
@@ -195,7 +196,9 @@ class AboutClasses < EdgeCase::Koan
   def test_all_objects_support_to_s_and_inspect
     array = [1,2,3]
 
-    assert_equal "123", array.to_s
+    # 1.9.2-p290 change here:
+    # assert_equal "123", array.flatten.to_s
+    assert_equal "[1, 2, 3]", array.to_s
     assert_equal "[1, 2, 3]", array.inspect
 
     assert_equal "STRING", "STRING".to_s

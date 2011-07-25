@@ -75,7 +75,9 @@ class AboutScope < EdgeCase::Koan
   end
 
   def test_you_can_get_a_list_of_constants_for_any_class_or_module
-    assert_equal ["Dog"], Jims.constants
+    # 1.9.2-p290 change here
+    #assert_equal ["Dog"], Jims.constants
+    assert_equal [:Dog], Jims.constants
     
     # Learned: Object.constants.size is about 99 in 1.8.7
     assert Object.constants.size > 99
