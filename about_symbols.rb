@@ -44,7 +44,16 @@ class AboutSymbols < EdgeCase::Koan
     def test_constants_become_symbols
       all_symbols = Symbol.all_symbols
 
-      assert_equal true, all_symbols.include?(:RubyConstant)
+      # Thanks to James Bell for this catch!
+      # this always will be true, false positive
+      # assert_equal true, all_symbols.include?(:RubyConstant)
+      # The proper way is to look for the string
+      # assert_equal false, all_symbols.include?("thisHasNeverBeenUsedBefore")
+      # Or do something like this
+      # :thisHasBeenUsed = "foo"
+      # assert_equal true, all_symbols.include?("thisHasBeenUsed")
+      symbols = Symbol.all_symbols.map {|x| x.to_s }
+      assert_equal true, symbols.include?("RubyConstant")
     end
   end
 
